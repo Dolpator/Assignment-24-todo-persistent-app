@@ -1,15 +1,37 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Backbone from 'backbone'
+const ReactDOM = require('react-dom');
+const React = require('react');
+const Backbone = require('backbone');
+const $ = require('jquery');
 
-const AppViewController = React.createClass({
-   render: function(){
-      return (
-         <div>
-            <h1>Hellooo</h1>
-         </div>
-      )
+const ToDoView = require('./todo-view.js')
+const DoneList = require('./done-list.js')
+const UndoneList = require('./undone-list.js')
+
+
+const AppRouter = Backbone.Router.extend({
+   routes: {
+      "undone" : "showUndone",
+      "done" : "showDone",
+      "" : "showHomePage"
+   },
+
+   showUndone: function(){
+
+
+   },
+   showDone: function(){
+
+
+
+   },
+
+   showHomePage: function(){
+
+   },
+
+   initialize: function(){
+      Backbone.history.start();
    }
 })
 
-ReactDOM.render( <AppViewController/> ,document.querySelector('#app-container'))
+var myApp = new AppRouter()
